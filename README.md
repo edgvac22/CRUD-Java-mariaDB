@@ -1,2 +1,2 @@
-# Crud-Java-mariaDB
+# Crud Java + mariaDB
 in construction...
