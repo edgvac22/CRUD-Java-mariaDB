@@ -32,12 +32,21 @@ public class mensajesService {
     
     public static void editarMensaje(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Indique e mensaje a borrar");
+        System.out.println("Indique e mensaje a editar");
+        String mensaje = sc.nextLine();
+        
+        System.out.println("Indique el ID del mensaje a editar");
         int id_mensaje = sc.nextInt();
-        MensajesDAO.borrarMensajesDB(id_mensaje);
+        Mensajes actualizacion = new Mensajes();
+        actualizacion.setId_mensaje(id_mensaje);
+        actualizacion.setMensaje(mensaje);
+        MensajesDAO.actualizarMensajesDB(actualizacion);
     }
     
     public static void borrarMensaje(){
-        
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Indique e mensaje a borrar");
+        int id_mensaje = sc.nextInt();
+        MensajesDAO.borrarMensajesDB(id_mensaje);
     }
 }

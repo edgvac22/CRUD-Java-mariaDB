@@ -78,12 +78,31 @@ public class MensajesDAO {
             
             
            }catch(SQLException e) {
-            System.out.println("No se pudieron recuperar los mensajes");
             System.out.println(e);
         }
     }
     
     public static void actualizarMensajesDB(Mensajes mensaje){
+        Conexion db_connect = new Conexion();
         
+        try (Connection conexion = db_connect.get_connection()){
+            PreparedStatement ps = null;
+            
+            try {
+                String query = "update mensajes set mensaje = ? where id_mensaje = ?";
+                ps = conexion.prepareStatement(query);
+                ps.setString(1, mensaje.getMensaje());
+                ps.setInt(1, mensaje.getId_mensaje());
+                ps.executeUpdate();
+                System.out.println("El mensaje ha sido actualizado");
+            } catch(SQLException e) {
+                System.out.println(e);
+                System.out.println("No se pudo actualizar el mensaje");
+            }
+            
+            
+           }catch(SQLException e) {
+            System.out.println(e);
+        }
     }
 }
