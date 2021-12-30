@@ -1,2 +1,5 @@
 # Crud Java + mariaDB
-in construction...
+
+This is a crud using Java + MariaDB.
+
+Easy connection!
